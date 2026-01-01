@@ -2,7 +2,7 @@ _comment: 'DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PANEL'
 meta:
   version: PLCN_v3
   update_url: 'https://raw.githubusercontent.com/pelican-eggs/monitoring/refs/heads/main/prometheus/egg-prometheus.yaml'
-exported_at: '2025-12-25T22:44:59+00:00'
+exported_at: '2026-01-01T21:05:37+00:00'
 name: Prometheus
 author: p.zarrad@outlook.de
 uuid: ff786432-4746-48ad-8212-71a266529aa9
@@ -28,9 +28,6 @@ scripts:
       shopt -s extglob
       # Switch to mounted directory
       cd /mnt/server
-      # Update installation system and install curl
-      apt-get update
-      apt-get install -y curl
       ARCH=$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")
       # Cleanup previous install if available
       if [ -f "prometheus.yml" ]; then mv prometheus.yml prometheus.yml.bak; fi
@@ -48,7 +45,7 @@ scripts:
       if [ -f "prometheus.web.yml.bak" ]; then rm -rf prometheus.web.yml && mv prometheus.web.yml.bak prometheus.web.yml && rm -rf prometheus.web.yml.bak; fi
       # Create dummy prometheus.web.yml as a placeholder
       if [ ! -f "prometheus.web.yml" ]; then touch prometheus.web.yml; fi
-    container: 'ghcr.io/pelican-eggs/yolks:debian'
+    container: 'ghcr.io/pelican-eggs/installers:debian'
     entrypoint: bash
 variables:
   -

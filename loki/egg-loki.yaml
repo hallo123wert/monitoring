@@ -2,7 +2,7 @@ _comment: 'DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PANEL'
 meta:
   version: PLCN_v3
   update_url: 'https://raw.githubusercontent.com/pelican-eggs/monitoring/refs/heads/main/loki/egg-loki.yaml'
-exported_at: '2025-12-25T22:48:58+00:00'
+exported_at: '2026-01-01T21:05:20+00:00'
 name: Loki
 author: unknown@unknown.com
 uuid: 7332d56e-b829-42ee-83ff-9008dc2d621a
@@ -39,7 +39,7 @@ scripts:
       cd /mnt/server
 
       apt update
-      apt install -y zip unzip wget curl git file
+      apt install -y file
       ARCH=$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")
       # Download and extract Loki
 
